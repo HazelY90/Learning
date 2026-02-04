@@ -1,4 +1,6 @@
 # Learning
 My work during learning<br>
-1.Study simulator: written in Python by oop. Main function: to transformate study time and exercises into the experience of diciplines, and calculate the level to visilize the outcomes of certain diciplines.
+1.Study simulator: 
+written in Python. 
+Main function: to transformate study time and exercises into the experience of diciplines, and calculate the level and visilize the data of certain diciplines.
 It allow user to create an user object with customized name, and add as many diciplines as they need. For each dicipline, an object is created. After created, it is saved into json file and is loaded in from the file for updating at next time.
