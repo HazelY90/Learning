@@ -125,7 +125,6 @@ class Minesweeper:
         self.game=Game(*self.MODES[self.mode])
         self.lifelabel.config(text=f"Lives:{self.game.lives}")
         self.timelabel.config(text="Time: 00:00")
-        
                         
     def opencell(self,i,j):
         if self.buttons[i][j]["state"] == "disabled" or self.buttons[i][j]["text"]=="🚩":
@@ -133,18 +132,18 @@ class Minesweeper:
         status,cells=self.game.check_status(i,j)
         if status=="lost":
             self.show_mines("fail")
-            messagebox.showinfo("Failed!","You hit the mine and run out of lives.")
+            messagebox.showinfo("Failed!","Boom! Out of lives. Game Over.")
             return
         elif status=="revive":
             self.buttons[i][j].config(image=self.mine_img[1], width=36,height=32, relief="sunken")
-            res=messagebox.askyesno("Hint!","You hit the mine. Consume a life to continue?")
+            res=messagebox.askyesno("Hint!","Mine Hit! Spend a life to continue?")
             if res:
                 self.game.resume()
                 self.buttons[i][j].config(image="",text="",width=3,height=1,bg="SystemButtonFace",relief="raised",compound="none",state="normal")
                 self.lifelabel.config(text=f"Lives:{self.game.lives}")
             else:
                 self.show_mines("fail")
-                messagebox.showinfo("Failed!","You hit the mine.")
+                messagebox.showinfo("Failed!","Better luck next time!")
                 return
         else:
             for (r,c) in cells:   
@@ -155,7 +154,7 @@ class Minesweeper:
                 
             if status=="win":
                 self.show_mines("win")
-                messagebox.showinfo("Congratulations!"," You have win the game!")
+                messagebox.showinfo("Congratulations!","Congratulations! You have won the game!")
 
     def flagcell(self,i,j):
         if self.buttons[i][j]["state"]=="disabled":
