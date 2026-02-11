@@ -17,7 +17,7 @@ class Game:
         self.time_running=False
         self.start_time=time.time()
         self.accumulate_time=0
-        
+
 
     def generate_mines(self,r,c):
 
@@ -99,7 +99,6 @@ class Game:
         seconds=time.time()-self.start_time+self.accumulate_time
         self.accumulate_time=seconds
         self.time_running=False
-
     
     def resume(self):
         self.start_time=time.time()
