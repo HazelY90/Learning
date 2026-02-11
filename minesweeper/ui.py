@@ -125,7 +125,6 @@ class Minesweeper:
         self.game=Game(*self.MODES[self.mode])
         self.lifelabel.config(text=f"Lives:{self.game.lives}")
         self.timelabel.config(text="Time: 00:00")
-        
                         
     def opencell(self,i,j):
         if self.buttons[i][j]["state"] == "disabled" or self.buttons[i][j]["text"]=="🚩":
@@ -155,7 +154,7 @@ class Minesweeper:
                 
             if status=="win":
                 self.show_mines("win")
-                messagebox.showinfo("Congratulations!"," Congratulations! You have won the game!")
+                messagebox.showinfo("Congratulations!","Congratulations! You have won the game!")
 
     def flagcell(self,i,j):
         if self.buttons[i][j]["state"]=="disabled":
